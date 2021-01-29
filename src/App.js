@@ -2,6 +2,8 @@ import Header from "./components/Header";
 import Layout from "./components/Layout";
 import Footer from "./components/Footer";
 
+import bg from "./components/img/bg.jpg";
+
 const App = () => {
   return (
     <>
@@ -11,27 +13,27 @@ const App = () => {
         />
 
         <Layout
-          id
-          title
-          descr
-          urlBg = './components/img/bg.jpg'
-          colorBg
+          id ='1'
+          title = 'Layout 1'
+          descr = 'description layout 1'
+          urlBg = {bg}
+          colorBg 
         />
 
         <Layout 
-          id
-          title
-          descr
+          id ='2'
+          title = 'Layout 2'
+          descr = 'description layout 2'
           urlBg 
-          colorBg = 'red'
+          colorBg = '#ffb8e0'
         />
 
         <Layout 
-          id
-          title
-          descr
-          urlBg = './components/img/bg.jpg'
-          colorBg
+          id = '3'
+          title = 'Layout 3'
+          descr = 'description layout 3'
+          urlBg = {bg}
+          colorBg 
         />
 
         <Footer />

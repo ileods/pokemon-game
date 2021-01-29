@@ -1,6 +1,6 @@
 import s from  './css/layout.module.css';
 
-const Layout = ({ id, title, descr, urlBg = false, colorBg = false }) => {
+const Layout = ({ id, title, urlBg = false, colorBg = false, colorTitle, children }) => {
 
     const style = {};
     if (urlBg) { 
@@ -15,11 +15,11 @@ const Layout = ({ id, title, descr, urlBg = false, colorBg = false }) => {
             <div className={s.wrapper}>
                 <article>
                     <div className={s.title}>
-                        { title && <h3>{ title }</h3> }
+                        { title && <h3 style = { colorTitle&&{color: colorTitle}}>{ title }</h3> }
                         <span className={s.separator}></span>
                     </div>
-                    <div className={s.desc, s.full}>
-                        {descr&&<p>{ descr }</p>}
+                    <div className={`${s.desc} ${s.full}`}>
+                        {children}
                     </div>
                 </article>
             </div>

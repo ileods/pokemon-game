@@ -9,6 +9,7 @@ footer {
     height: 100px;
     background: #fafafa;
     z-index: 0;
+    
 }
 
 footer .wrapper {
@@ -18,6 +19,7 @@ footer .wrapper {
     max-width: 1400px;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 @media only screen and (max-width: 649px) {

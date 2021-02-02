@@ -1,22 +1,20 @@
+import { useState } from 'react';
+
 import Menu from "./Menu";
 import NavBar from "./NavBar";
 
 const MenuNavbar = () => {
-  let name= '';
+  const [isNavbarActive, setNavbarActive] = useState(false);
 
-  const handlerChangeNavbar = (navbar) => {
-    if (navbar) {
-      name='active';
-    } else {
-      name='deactive';
-    }
+  const handlerChangeNavbar = () => {
+    setNavbarActive(!isNavbarActive)
   };
 
   return (
     <>
-        <Menu name={name}/>
+        <Menu isNavbarActive={isNavbarActive} />
 
-        <NavBar onChangeNavbar={handlerChangeNavbar} />
+        <NavBar onChangeNavbar={handlerChangeNavbar} isNavbarActive={isNavbarActive} />
     </>
   );
 }

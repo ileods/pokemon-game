@@ -1,14 +1,10 @@
-import { useState } from 'react';
-
 import cn from 'classnames';
 import s from  './style.module.css';
 
-const NavBar = ({onChangeNavbar}) => {
-    const [isNavbarActive, setNavbarActive] = useState(false);
+const NavBar = ({onChangeNavbar, isNavbarActive}) => {
     
     const handlerClickNavbar = () => {
-        setNavbarActive(!isNavbarActive)
-        onChangeNavbar && onChangeNavbar(isNavbarActive)
+        onChangeNavbar&&onChangeNavbar()
     };
 
     return (

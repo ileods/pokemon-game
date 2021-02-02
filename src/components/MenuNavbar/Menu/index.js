@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import s from  './style.module.css';
 
-const Menu = ({name='deactive'} ) => {
+const Menu = ({isNavbarActive} ) => {
     return (
-        <div className={cn(s.menuContainer, s[name])}>
+        <div className={cn(s.menuContainer, isNavbarActive ? s.active : s.deactive)}>
             <div className={s.overlay} />
             <div className={s.menuItems}>
                 <ul>

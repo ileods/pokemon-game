@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Header from "../../components/Header";
 import Layout from "../../components/Layout";
 import PokemonCard from "../../components/PokemonCard";
@@ -143,9 +145,25 @@ const POKEMONS = [
 ];
 
 const HomePage = ({ onChangePage }) => {
+  const [pokemons, setPokemons] = useState(POKEMONS);
+  
   const handlerClickButton = (page) => {
     onChangePage && onChangePage(page);
   };
+
+  const onCardClick = (id) => {
+    setPokemons(prevState => {
+        const stateCopy = JSON.parse(JSON.stringify(prevState));
+        return stateCopy.map(pokemon => {
+            if (pokemon.id===id) {
+                pokemon.isActive = !pokemon.isActive;
+            };
+            console.log(pokemon, POKEMONS);
+            return pokemon;
+        });
+        
+    });
+};
 
   return (
     <>
@@ -173,13 +191,15 @@ const HomePage = ({ onChangePage }) => {
         >
           <div className={s.flex}>
             {
-              POKEMONS.map(item => <PokemonCard 
+              pokemons.map(item => <PokemonCard 
                 key = {item.id}
                 name = {item.name}
                 img = {item.img}
                 id = {item.id}
                 type = {item.type}
                 values = {item.values}
+                isActive = {item.isActive}
+                onCardClick={onCardClick}
               />)
             }
           </div>

@@ -4,7 +4,7 @@ import s from  './style.module.css';
 
 import cardBackSide from '../../img/card-back-side.jpg'
 
-const PokemonCard = ({ name, img, id, type, values, isActive, onCardClick }) => {
+const PokemonCard = ({ name, img, id, type, values, isActive = false, onCardClick }) => {
     
     const handlerClick = () => {
         onCardClick && onCardClick(id);

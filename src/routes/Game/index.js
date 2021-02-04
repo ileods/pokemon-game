@@ -177,7 +177,8 @@ const GamePage = () => {
                         values = {item.values}
                         isActive = {item.isActive}
                         onCardClick={onCardClick}
-                    />)
+                    />
+                    )
                 }
                 </div>
                 <button className={s.buttonBack} onClick={handlerClickButton}>

@@ -29,7 +29,7 @@
     transform: rotateY(180deg);
 }
 
-.pokemonCard.active {
+.pokemonСard.active{
     animation: flipFront 1000ms 300ms forwards;
 }
 

@@ -1,0 +1,24 @@
+.buttonBack{
+    font-size: 24px;
+    font-weight:700;
+    color: #0075ac;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: Overlock;
+
+    border: none;
+    border-radius: 10px;
+    padding: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 16px;
+}
+
+.buttonBack:hover{
+    background-color: #0075ac;
+    color: white;
+}
+
+.buttonBack:active{
+    background-color: #0076acc7;
+}

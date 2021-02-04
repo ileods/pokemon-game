@@ -155,7 +155,7 @@ const GamePage = () => {
                 if (pokemon.id===id) {
                     pokemon.isActive = !pokemon.isActive;
                 };
-                console.log(pokemon);
+                console.log(pokemon, POKEMONS);
                 return pokemon;
             });
             
@@ -168,7 +168,7 @@ const GamePage = () => {
                 <p> This is Game Page!!!</p>
                 <div>
                 {
-                    POKEMONS.map(item => <PokemonCard 
+                    pokemons.map(item => <PokemonCard 
                         key = {item.id}
                         name = {item.name}
                         img = {item.img}

@@ -3,18 +3,18 @@ import { useState } from 'react';
 import Menu from "./Menu";
 import NavBar from "./NavBar";
 
-const MenuNavbar = () => {
-  const [isNavbarActive, setNavbarActive] = useState(false);
+const MenuNavbar = ({ bgActive }) => {
+  const [isNavbarActive, setNavbarActive] = useState(null);
 
   const handlerChangeNavbar = () => {
-    setNavbarActive(!isNavbarActive)
+    setNavbarActive(prevState => !prevState)
   };
 
   return (
     <>
-        <Menu isNavbarActive={isNavbarActive} />
+        <Menu isNavbarActive={isNavbarActive} onClickClose={handlerChangeNavbar} />
 
-        <NavBar onChangeNavbar={handlerChangeNavbar} isNavbarActive={isNavbarActive} />
+        <NavBar bgActive={bgActive} onChangeNavbar={handlerChangeNavbar} isNavbarActive={isNavbarActive} />
     </>
   );
 }

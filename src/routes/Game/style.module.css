@@ -1,3 +1,10 @@
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .buttonBack{
     font-size: 24px;
     font-weight:700;

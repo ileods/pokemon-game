@@ -156,9 +156,8 @@ const HomePage = ({ onChangePage }) => {
         const stateCopy = JSON.parse(JSON.stringify(prevState));
         return stateCopy.map(pokemon => {
             if (pokemon.id===id) {
-                pokemon.isActive = !pokemon.isActive;
+              return { ... pokemon, active: ! pokemon.active }
             };
-            console.log(pokemon, POKEMONS);
             return pokemon;
         });
         
@@ -198,7 +197,7 @@ const HomePage = ({ onChangePage }) => {
                 id = {item.id}
                 type = {item.type}
                 values = {item.values}
-                isActive = {item.isActive}
+                isActive = {item.active}
                 onCardClick={onCardClick}
               />)
             }

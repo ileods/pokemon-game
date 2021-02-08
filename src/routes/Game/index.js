@@ -64,7 +64,7 @@ const GamePage = () => {
             const pokemon = {...item[1]};
             if (pokemon.id === id) {
                   pokemon.active=!pokemon.active;
-                  database.ref('pokemons/'+ item[0]).set({...item[1],active:true})
+                  database.ref('pokemons/'+ item[0]).set(pokemon)
                 }
     
             acc[item[0]] = pokemon;

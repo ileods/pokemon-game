@@ -5,11 +5,11 @@ import HomePage from "./routes/Home";
 import GamePage from "./routes/Game";
 import MenuNavbar from './components/MenuNavbar';
 import Footer from './components/Footer';
-
-import s from './style.module.css'
 import NotFoundPage from './routes/NotFound';
 import AboutPage from './routes/About';
 import ContactPage from './routes/Contact';
+
+import s from './style.module.css';
 
 const App = () => {
   const match = useRouteMatch ('/');

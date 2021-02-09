@@ -1,7 +1,7 @@
 import {useHistory } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
-import database from '../../service/firebase';
+import {FireBaseContext} from '../../context/firebaseContext'
 
 import PokemonCard from '../../components/PokemonCard';
 import s from './style.module.css';
@@ -22,28 +22,29 @@ const GamePage = () => {
         "special-defense": 50,
         "speed": 71
       },
-      "type": "flying",
-      "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
-      "name": "pidgeotto",
+      "type": "water",
+      "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+      "name": "squirtle",
       "base_experience": 122,
       "height": 11,
-      "id": 17,
+      "id": 7,
       "values": {
         "top": "A",
         "right": 2,
-        "bottom": 7,
-        "left": 5
+        "bottom": 3,
+        "left": 2
       }
   };
   
+  const firebase = useContext(FireBaseContext);
 
     const history = useHistory();
 
     const [pokemons, setPokemons] = useState({});
 
   useEffect(()=>{
-    database.ref('pokemons').once('value', (snapshot) => {
-      setPokemons(snapshot.val());
+    firebase.getPokemonSoket((pokemons) => {
+      setPokemons(pokemons);
     });
   }, []);
 
@@ -52,10 +53,8 @@ const GamePage = () => {
     };
 
     const addPokemon = () => {
-      let newKey = database.ref().child('pokemons').push().key;
-      let newCards = {};
-      newCards['/pokemons/' + newKey] = newPokemon;
-      return database.ref().update(newCards);
+      const data = newPokemon;
+      firebase.addPokemon(data);
     };
 
     const onCardClick = (id) => {
@@ -64,10 +63,11 @@ const GamePage = () => {
             const pokemon = {...item[1]};
             if (pokemon.id === id) {
                   pokemon.active=!pokemon.active;
-                  database.ref('pokemons/'+ item[0]).set(pokemon)
                 }
     
             acc[item[0]] = pokemon;
+
+            firebase.postPokemon(item[0], pokemon);
     
             return acc;
         }, {});
@@ -92,6 +92,7 @@ const GamePage = () => {
                         values = {values}
                         isActive = {active}
                         onCardClick={onCardClick}
+                        minimize={true}
                     />
                     ))
                 }

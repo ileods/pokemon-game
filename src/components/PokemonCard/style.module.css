@@ -4,8 +4,7 @@
     margin: 16px;
     perspective: 1000px;
 }
-
-.pokemonСard {
+.pokemonCard {
     --fire: #FDDFDF;
     --grass: #DEFDE0;
     --electric: #FCF7DE;
@@ -19,17 +18,17 @@
     --psychic: #eaeda1;
     --flying: #F5F5F5;
     --fighting: #E6E0D4;
-    --normal:#F5F5F5;
+    --normal:#F5F5F;
 
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
     position: relative;
     transform-style: preserve-3d;
     transition: .6s .1s;
     transform: rotateY(180deg);
 }
 
-.pokemonСard.active{
+.pokemonCard.active {
     animation: flipFront 1000ms 300ms forwards;
 }
 
@@ -40,6 +39,10 @@
     to {
         transform: rotateY(0deg);
     }
+}
+
+.pokemonCard.selected {
+    margin-top: -40px;
 }
 
 .cardFront,
@@ -91,6 +94,10 @@
 
 .wrap.back {
     z-index: -1;
+    background-image: url(../../img/card-back-side.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .cardBack {

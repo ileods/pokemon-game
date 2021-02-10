@@ -1,9 +1,9 @@
-import { pokemonContext } from '../../../context/pokemonContext';
+
 import s from './style.module.css';
 
 const BoardPage = () => {
     return (
-        <pokemonContext.Provider>
+
             <div className={s.root}>
                             <div className={s.playerOne}>
 
@@ -20,7 +20,6 @@ const BoardPage = () => {
                     <div className={s.boardPlate}>9</div>
                 </div>
             </div>
-        </pokemonContext.Provider>
     );
 };
 

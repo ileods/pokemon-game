@@ -2,7 +2,7 @@ import {useHistory } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 
 import {FireBaseContext} from '../../../context/firebaseContext';
-import { pokemonContext } from '../../../context/pokemonContext';
+import {pokemonContext} from '../../../context/pokemonContext';
 
 import PokemonCard from '../../../components/PokemonCard';
 import s from './style.module.css';
@@ -37,11 +37,10 @@ const StartPage = () => {
       }
   };
   
+  const pokemonContextElem = useContext(pokemonContext);
   const firebase = useContext(FireBaseContext);
-
-    const history = useHistory();
-
-    const [pokemons, setPokemons] = useState({});
+  const history = useHistory();
+  const [pokemons, setPokemons] = useState({});
 
   useEffect(()=>{
     firebase.getPokemonSoket((pokemons) => {
@@ -50,19 +49,19 @@ const StartPage = () => {
   }, []);
 
     const handlerClickButton = () => {
-
-            history.push('/');
-        
+      history.push('/game/board');
+      pokemons.forEach(item => {
+        if (item.selected){
+          pokemonContextElem.handlerIsSelect();
+        }
+      })
     };
-
-    const handlerClickButtonStart= () =>{
-        history.push('/game/board');
-    }
 
     const addPokemon = () => {
       const data = newPokemon;
       firebase.addPokemon(data);
     };
+
 // функиця для изменения состояния (открытие-закрытие карты)
     // const onCardClick = (id) => {
     //   setPokemons(prevState => {
@@ -102,15 +101,14 @@ const StartPage = () => {
     };
 
     return (
-        <pokemonContext.Provider>
             <div className={s.direction}>
                 <p> This is Game Page!!!</p>
-                <button id="start" className={s.button} onClick={handlerClickButtonStart}>
+                <button id="start" className={s.button} onClick={handlerClickButton}>
                     start game!
                 </button>
                 <div className={s.flex}>
                 {
-                    Object.entries(pokemons).map(([key, {name, img, id, type, values, active}]) => (<PokemonCard 
+                    Object.entries(pokemons).map(([key, {name, img, id, type, values, active, selected}]) => (<PokemonCard 
                         key = {key}
                         name = {name}
                         img = {img}
@@ -125,11 +123,8 @@ const StartPage = () => {
                     ))
                 }
                 </div>
-                <button id="back" className={s.button} onClick={handlerClickButton}>
-                    Back to home
-                </button>
             </div>
-        </pokemonContext.Provider>
+  
     );
 };
 

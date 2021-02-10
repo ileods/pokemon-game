@@ -9,7 +9,7 @@ const PokemonCard = ({ name, img, id, type, values, isActive = false, isSelected
     };
 
     return (
-        <div className={s.root}>
+        
             <div onClick={handlerClick} className={cn(className, s.pokemonCard, {
                 [s.active]: isActive,
                 [s.selected]: isSelected
@@ -44,7 +44,7 @@ const PokemonCard = ({ name, img, id, type, values, isActive = false, isSelected
                     </div>
 
                 </div>
-        </div>
+        
         
     );
 

@@ -199,6 +199,7 @@ const HomePage = ({ onChangePage }) => {
                 values = {item.values}
                 isActive = {item.active}
                 onCardClick={onCardClick}
+                className={s.card}
               />)
             }
           </div>

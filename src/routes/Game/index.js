@@ -8,13 +8,13 @@ import {pokemonContext} from '../../context/pokemonContext';
 const GamePage = () => {
   const match = useRouteMatch();
 
-  const [pokemon, setPokemon] = useState({});
+  const [pokemonArr, setPokemon] = useState({});
 
   const handlerIsSelect = (val) => {
     setPokemon(val)
   }
   return (
-    <pokemonContext.Provider value={{pokemon, inSelect: handlerIsSelect}}>
+    <pokemonContext.Provider value={{pokemonArr, inSelect: handlerIsSelect}}>
         <Switch>
             <Route path={`${match.path}/`} exact component={StartPage} />
             <Route path={`${match.path}/board`} component={BoardPage} />

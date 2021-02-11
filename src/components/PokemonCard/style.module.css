@@ -23,17 +23,9 @@
 }
 
 .pokemonCard.active {
-    animation: flipFront 1000ms 300ms forwards;
+    transform: rotateY(0deg);
 }
 
-@keyframes flipFront {
-    from {
-        transform: rotateY(180deg);
-    }
-    to {
-        transform: rotateY(0deg);
-    }
-}
 
 .pokemonCard.selected {
     margin-top: -20px;
@@ -234,4 +226,12 @@
     left: 50%;
     transform: translate(-50%, 0);
     bottom: 0;
+}
+
+.blue{
+    background-color: #a8caea;
+}
+
+.red{
+    background-color: #f57e8e;
 }

@@ -33,6 +33,7 @@
 .card {
     max-height: 14.8vw;
     margin-top: -6vw;
+    max-width: 18vw;
 }
 
 .card:first-child {
@@ -42,6 +43,14 @@
     position: absolute;
     top: 4.3vw;
     left: 5vw;
-    width: 250px;
+    width: 18vw;
+    height: 50.3vw;
+}
+
+.playerTwo {
+    position: absolute;
+    top: 4.3vw;
+    right: 5vw;
+    width: 18vw;
     height: 50.3vw;
 }

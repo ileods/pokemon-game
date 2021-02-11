@@ -1,9 +1,3 @@
-.root {
-    width: 268px;
-    height: 388px;
-    margin: 16px;
-    perspective: 1000px;
-}
 .pokemonCard {
     --fire: #FDDFDF;
     --grass: #DEFDE0;
@@ -42,7 +36,8 @@
 }
 
 .pokemonCard.selected {
-    margin-top: -40px;
+    margin-top: -20px;
+    margin-bottom: 20px;
 }
 
 .cardFront,
@@ -64,6 +59,11 @@
 .cardFront {
     transform: rotateY(0deg);
     z-index: 2;
+}
+
+.pokemonCard:active .wrap.front::after,
+.pokemonCard:focus .wrap.front::after {
+    border-color: var(--rock);
 }
 
 .wrap {

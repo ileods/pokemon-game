@@ -143,7 +143,7 @@ const BoardPage = () => {
 
                         {/* <ArrowChoice/> */}
                         {
-                                result &&  <Result type={result} />
+                                <Result type={result} />
                         }
                             {
                                 item.card && <PokemonCard {...item.card} minimize isActive/>

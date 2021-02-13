@@ -34,7 +34,6 @@ const FinishPage = () =>{
                 selected: !prevState[key].selected
             }
         }));
-        console.log(newPokemon)
     };
 
     

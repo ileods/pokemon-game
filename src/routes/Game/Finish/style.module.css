@@ -1,9 +1,15 @@
-
-.flex {
+.flex{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     grid-gap: 40px;
     font-size: 24px;
+    
+}
+
+.card{    
+    width: 100%;
+    height: 350px;
+    cursor: pointer;
     
 }
 
@@ -23,7 +29,7 @@
     padding-right: 20px;
     margin-bottom: 52px;
     margin-left: 42%;
-    
+    margin-top: 36px;
 
 }
 
@@ -31,12 +37,3 @@
     background-color: rgb(152, 191, 236);
     color: #ffffff;
 }
-
-.card{
-    width: 100%;
-    height: 400px;
-    cursor: pointer;
-    
-}
-
-    

@@ -26,28 +26,10 @@ const StartPage = () => {
       history.push('/game/board');
     };
 
-// функиця для изменения состояния (открытие-закрытие карты)
-    // const onCardClick = (id) => {
-    //   setPokemons(prevState => {
-    //     return  Object.entries(prevState).reduce((acc, item) => {
-    //         const pokemon = {...item[1]};
-    //         if (pokemon.id === id) {
-    //                 pokemon.active=!pokemon.active;
-    //             }
-    
-    //         acc[item[0]] = pokemon;
-
-    //         firebase.postPokemon(item[0], pokemon);
-    
-    //         return acc;
-    //     }, {});
-    // });
-    // };
-
   const handlerChangeSelected = (key) => {
     const pokemon = {...pokemons[key]}
 
-    pokemonsContext.onSelectedPokemons(key, pokemon);
+    pokemonsContext.onSelectedPokemons(key, pokemon, false);
 
     setPokemons(prevState => ({
       ...prevState,
@@ -58,14 +40,17 @@ const StartPage = () => {
     }));
     };
 
+    
+
     return (
             <div>
+            
                 <button id="start" 
                   className={s.button} 
                   onClick={handlerClickButton}
                   disabled={Object.keys(pokemonsContext.pokemon).length < 5}
-                  >
-                    start game!
+                >
+                  start game!
                 </button>
                 <div className={s.flex}>
                 {

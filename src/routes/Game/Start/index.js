@@ -44,7 +44,7 @@ const StartPage = () => {
 
     return (
             <div>
-            
+            <p className={s.text}>Choose 5 cards!</p>
                 <button id="start" 
                   className={s.button} 
                   onClick={handlerClickButton}

@@ -21,7 +21,7 @@
     padding: 16px;
     padding-left: 20px;
     padding-right: 20px;
-    margin-bottom: 52px;
+    margin-bottom: 30px;
     margin-left: 42%;
     
 
@@ -39,4 +39,11 @@
     
 }
 
-    
+.text{
+    font-size: 32px;
+    margin: 0; 
+    padding: 0;
+
+    margin-left: 41%;
+    margin-bottom: 1%;
+}

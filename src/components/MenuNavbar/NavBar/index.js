@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import s from  './style.module.css';
 
+import logo from '../../../img/logo.svg'
+
 const NavBar = ({onChangeNavbar, isNavbarActive, bgActive = false}) => {
 
     return (
@@ -9,7 +11,7 @@ const NavBar = ({onChangeNavbar, isNavbarActive, bgActive = false}) => {
         })}>
             <div className={s.navWrapper}>
                 <p className={s.brand}>
-                    LOGO
+                    <img className={s.logo} src={logo}></img>
                 </p>
                 <div className={cn(s.menuButton, {[s.active] : isNavbarActive})} onClick={onChangeNavbar} >
                     <span />

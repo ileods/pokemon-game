@@ -25,6 +25,11 @@
   font-size: 1.6rem;
   color: #fafafa;
   cursor: default;
+  height: 40px;
+}
+
+.logo {
+  height: 40px;
 }
 
 /***** Menu Button *****/

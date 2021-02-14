@@ -5,33 +5,62 @@ import StartPage from './Start';
 import BoardPage from './Board';
 import FinishPage from './Finish';
 
-import {pokemonContext} from '../../context/pokemonContext';
+import { pokemonContext } from '../../context/pokemonContext';
 
 const GamePage = () => {
   const match = useRouteMatch();
 
   const [selectedPokemons, setSelectedPokemons] = useState({});
 
-  const handlerSelectedPokemons = (key, pokemon) => {
-    setSelectedPokemons(prevState => {
-      if (prevState[key]) {
-        const copyState = {...prevState};
-        delete copyState[key];
+  const [pokemonsPlayer2, setPokemonsPlayer2] = useState({});
 
-        return copyState;
-      }
-      return {
-        ...prevState,
-        [key]: pokemon
-      }
-    })
-  };
+  const [newPokemon, setNewPokemon] = useState({});
+
+  const [result, setResult] = useState('');
+
+  const handlerSelectedPokemons = (key, pokemon, player2) => {
+    if (player2 === true) {
+      setNewPokemon(prevState => {
+        if (prevState[key]) {
+          const copyState = {...prevState};
+          delete copyState[key];
+  
+          return copyState;
+        }
+        return {
+          ...prevState,
+          [key]: pokemon
+        }
+      })
+    } else {
+      setSelectedPokemons(prevState => {
+        if (prevState[key]) {
+          const copyState = {...prevState};
+          delete copyState[key];
+  
+          return copyState;
+        }
+        return {
+          ...prevState,
+          [key]: pokemon
+        }
+      })
+    }};
 
   return (
+    
     <pokemonContext.Provider value={{
-      pokemon: selectedPokemons, 
-      onSelectedPokemons: handlerSelectedPokemons
+      pokemon: selectedPokemons,
+      pokemon2: pokemonsPlayer2,
+      onSelectedPokemons: handlerSelectedPokemons,
+      setSelectedPokemons,
+      setPokemonsPlayer2,
+      newPokemon, 
+      setNewPokemon,
+      result, 
+      setResult
       }}>
+
         <Switch>
             <Route path={`${match.path}/`} exact component={StartPage} />
             <Route path={`${match.path}/board`} component={BoardPage} />

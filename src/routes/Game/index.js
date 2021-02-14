@@ -45,9 +45,7 @@ const GamePage = () => {
           [key]: pokemon
         }
       })
-    }
-    
-  };
+    }};
 
   return (
     
@@ -55,6 +53,7 @@ const GamePage = () => {
       pokemon: selectedPokemons,
       pokemon2: pokemonsPlayer2,
       onSelectedPokemons: handlerSelectedPokemons,
+      setSelectedPokemons,
       setPokemonsPlayer2,
       newPokemon, 
       setNewPokemon,

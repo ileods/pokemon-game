@@ -11,7 +11,7 @@ import s from './style.module.css';
 const FinishPage = () =>{
 
     const history = useHistory();
-    const { pokemon, pokemon2, onSelectedPokemons, newPokemon, result, setResult } = useContext(pokemonContext);
+    const { pokemon, pokemon2, onSelectedPokemons, newPokemon, result, setResult, setPokemonsPlayer2, setSelectedPokemons, setNewPokemon } = useContext(pokemonContext);
     const firebase = useContext(FireBaseContext);
 
     const [pokemons, setPokemons] = useState(pokemon2);
@@ -64,15 +64,19 @@ const FinishPage = () =>{
                     firebase.addPokemon(newPokemon, () => {})
                 }
                 history.replace('/game');
-                for (var member in pokemon) {
-                    delete pokemon[member]
-                };
-                for (var member in pokemon2) {
-                    delete pokemon2[member]
-                };
-                for (var member in newPokemon) {
-                    delete newPokemon[member]
-                };
+                
+                setPokemonsPlayer2({});
+                setSelectedPokemons({});
+                setNewPokemon({});
+                // for (var member in pokemon) {
+                //     delete pokemon[member]
+                // };
+                // for (var member in pokemon2) {
+                //     delete pokemon2[member]
+                // };
+                // for (var member in newPokemon) {
+                //     delete newPokemon[member]
+                // };
                 setResult('');
             }}>
                 end game

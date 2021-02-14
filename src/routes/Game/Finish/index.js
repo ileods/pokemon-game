@@ -68,15 +68,6 @@ const FinishPage = () =>{
                 setPokemonsPlayer2({});
                 setSelectedPokemons({});
                 setNewPokemon({});
-                // for (var member in pokemon) {
-                //     delete pokemon[member]
-                // };
-                // for (var member in pokemon2) {
-                //     delete pokemon2[member]
-                // };
-                // for (var member in newPokemon) {
-                //     delete newPokemon[member]
-                // };
                 setResult('');
             }}>
                 end game

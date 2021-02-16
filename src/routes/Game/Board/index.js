@@ -67,7 +67,7 @@ const BoardPage = () => {
         };
         effect();
 
-    },[])
+    },[setPokemonsPlayer2])
 
 
     const handlerClickBoardPlate = async (position) => {

@@ -47,23 +47,25 @@ const BoardPage = () => {
         history.replace('/game');
     }
 
-    useEffect(async() => {
-        const boardResponse = await fetch ('https://reactmarathon-api.netlify.app/api/board');
-        const boardRequest = await boardResponse.json();
-
-        setBoard(boardRequest.data);
-
-        const player2Response =  await fetch ('https://reactmarathon-api.netlify.app/api/create-player');
-        const player2Request = await player2Response.json();
-        setPokemonsPlayer2(player2Request.data)
-
-        setPlayer2(() => {
-            return player2Request.data.map(item => ({
-                ...item, 
-                possession:'red'
-            }))
-        });
-        
+    useEffect(() => {
+        async function effect(){
+            const boardResponse = await fetch ('https://reactmarathon-api.netlify.app/api/board');
+            const boardRequest = await boardResponse.json();
+    
+            setBoard(boardRequest.data);
+    
+            const player2Response =  await fetch ('https://reactmarathon-api.netlify.app/api/create-player');
+            const player2Request = await player2Response.json();
+            setPokemonsPlayer2(player2Request.data)
+    
+            setPlayer2(() => {
+                return player2Request.data.map(item => ({
+                    ...item, 
+                    possession:'red'
+                }))
+            });
+        };
+        effect();
 
     },[])
 

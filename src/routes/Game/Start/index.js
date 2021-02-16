@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {pokemonContext} from '../../../context/pokemonContext';
-import { getPokemonsAsync, selectPokemonsData, selectPokemonsLoading } from '../../../store/pokemons';
+import { getPokemonsAsync, selectPokemonsData } from '../../../store/pokemons';
 
 import PokemonCard from '../../../components/PokemonCard';
 import s from './style.module.css';
@@ -11,7 +11,6 @@ import s from './style.module.css';
 
 const StartPage = () => {
   const pokemonsContext = useContext(pokemonContext);
-  const isLoading = useSelector(selectPokemonsLoading)
   const pokemonsRedux = useSelector(selectPokemonsData);
   const history = useHistory();
   const dispatch = useDispatch();

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 
 import Header from "../../components/Header";
 import Layout from "../../components/Layout";
@@ -6,6 +7,7 @@ import PokemonCard from "../../components/PokemonCard";
 
 import bg1 from "../../img/bg.jpg";
 import bg2 from "../../img/bg1.jpg";
+import { selectCount } from '../../store/counter';
 
 import s from "./style.module.css";
 
@@ -144,12 +146,12 @@ const POKEMONS = [
   }
 ];
 
-const HomePage = ({ onChangePage }) => {
+const HomePage = () => {
   const [pokemons, setPokemons] = useState(POKEMONS);
-  
-  const handlerClickButton = (page) => {
-    onChangePage && onChangePage(page);
-  };
+
+  const count = useSelector(selectCount);
+  const dispatch = useDispatch();
+  console.log(count)
 
   const onCardClick = (id) => {
     setPokemons(prevState => {
@@ -170,7 +172,6 @@ const HomePage = ({ onChangePage }) => {
         <Header
           title= "Pokemon Game"
           descr = "This is simple triple triad card game"
-          onClickButton={handlerClickButton}
         />
 
         <Layout

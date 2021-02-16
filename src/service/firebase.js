@@ -43,5 +43,6 @@ class Firebase {
     };
 }
 
+const FirebaseCLass = new Firebase();
 
-export default Firebase;
+export default FirebaseCLass;

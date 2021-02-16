@@ -11,14 +11,14 @@ import ContactPage from './routes/Contact';
 
 import s from './style.module.css';
 import { FireBaseContext } from './context/firebaseContext';
-import Firebase from './service/firebase'
+import FirebaseCLass from './service/firebase'
 
 const App = () => {
   const location = useLocation();
   const isPadding = location.pathname === '/' || location.pathname === '/game/board';
 
   return ( 
-    <FireBaseContext.Provider value={new Firebase()}>
+    <FireBaseContext.Provider value={FirebaseCLass}>
       <Switch>
         <Route component={NotFoundPage} path="/NotFound" />
         <Route>

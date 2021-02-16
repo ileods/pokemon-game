@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import FirebaseClass from '../service/firebase'
+import FirebaseClass from '../service/firebase';
 
 export const slice = createSlice({
     name:'pokemons',

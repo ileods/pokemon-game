@@ -11,7 +11,7 @@ const NavBar = ({onChangeNavbar, isNavbarActive, bgActive = false}) => {
         })}>
             <div className={s.navWrapper}>
                 <p className={s.brand}>
-                    <img className={s.logo} src={logo}></img>
+                    <img className={s.logo} src={logo} alt="logo"></img>
                 </p>
                 <div className={cn(s.menuButton, {[s.active] : isNavbarActive})} onClick={onChangeNavbar} >
                     <span />

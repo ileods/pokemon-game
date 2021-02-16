@@ -7,8 +7,8 @@ import {pokemonContext} from '../../../context/pokemonContext';
 
 import s from './style.module.css';
 import PlayerBoard from './component/PlayerBoard';
-import ArrowChoice from './component/ArrowChoice';
-import Result from './component/Result';
+// import ArrowChoice from './component/ArrowChoice';
+// import Result from './component/Result';
 
 const counterWin = (board, player1, player2) => {
     let player1Count = player1.length;

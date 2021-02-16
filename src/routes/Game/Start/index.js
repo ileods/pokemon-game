@@ -19,7 +19,7 @@ const StartPage = () => {
 
   useEffect(()=>{
     dispatch(getPokemonsAsync());
-  }, []);
+  }, [dispatch]);
 
   const handlerClickButton = () => {
     history.push('/game/board');

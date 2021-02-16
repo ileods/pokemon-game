@@ -106,8 +106,6 @@ const BoardPage = () => {
     };
 
     useEffect(() => {
-        console.log(steps)
-        console.log(result)
         if (steps === 9 ){
             const [count1, count2] = counterWin(board, player1, player2);
 
@@ -124,7 +122,7 @@ const BoardPage = () => {
             
             history.replace('/game/finish');
         }
-    }, [steps])
+    }, [steps, board, history, player1, player2, result, setResult])
 
     return (
 

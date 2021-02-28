@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Input from '../Input';
 import Modal from '../Modal';
 import LoginForm from '../LoginForm';
 
@@ -8,7 +7,7 @@ import NavBar from "./NavBar";
 
 const MenuNavbar = ({ bgActive }) => {
   const [isNavbarActive, setNavbarActive] = useState(null);
-  const [isOpenModal, setOpenModal] = useState(false);
+  const [isOpenModal, setOpenModal] = useState(true);
 
   const handlerChangeNavbar = () => {
     setNavbarActive(prevState => !prevState)
@@ -16,6 +15,10 @@ const MenuNavbar = ({ bgActive }) => {
 
   const handlerClickLogin = () =>{
     setOpenModal(prevState => !prevState)
+  };
+
+  const handlerSubmitLoginForm = (values) =>{
+
   }
 
   return (
@@ -34,20 +37,7 @@ const MenuNavbar = ({ bgActive }) => {
               isOpen={isOpenModal}
               onCloseModal={handlerClickLogin}
         >
-          <Input
-            label="Email"
-            // value={email}
-            name="email"
-            onChange={(val) => {console.log(val)}}
-          />
-          <Input
-            label="Password"
-            // value={password}
-            type="password"
-            name="password"
-            onChange={(val) => {console.log(val)}}
-          />
-          <LoginForm onSubmit={handlerClickLogin}/>
+          <LoginForm onSubmit={handlerSubmitLoginForm}/>
         </Modal>
     </>
   );

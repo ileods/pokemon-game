@@ -4,7 +4,9 @@ import s from  './style.module.css';
 import logo from '../../../img/logo.svg'
 import { useHistory } from 'react-router-dom';
 
-const NavBar = ({onChangeNavbar, isNavbarActive, bgActive = false}) => {
+import {ReactComponent as LoginSVG} from '../../../img/login.svg';
+
+const NavBar = ({onChangeNavbar, isNavbarActive, onClickLogin, bgActive = false}) => {
     const history = useHistory();
 
     const goHome = () => {
@@ -16,11 +18,19 @@ const NavBar = ({onChangeNavbar, isNavbarActive, bgActive = false}) => {
             [s.bgActive]: bgActive
         })}>
             <div className={s.navWrapper}>
-                <p className={s.brand} onClick={goHome}>
+                <div className={s.brand} onClick={goHome}>
                     <img className={s.logo} src={logo} alt="logo"></img>
-                </p>
-                <div className={cn(s.menuButton, {[s.active] : isNavbarActive})} onClick={onChangeNavbar} >
-                    <span />
+                </div>
+                <div className={s.loginAndMenu}>
+                    <div 
+                        className={s.loginWrap}
+                        onClick={onClickLogin}
+                    >
+                        <LoginSVG />
+                    </div>
+                    <div className={cn(s.menuButton, {[s.active] : isNavbarActive})} onClick={onChangeNavbar} >
+                        <span />
+                    </div>
                 </div>
             </div>
         </nav>

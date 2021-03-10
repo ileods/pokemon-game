@@ -45,6 +45,7 @@ const MenuNavbar = ({ bgActive }) => {
     } else {
       localStorage.setItem('idToken', responce.idToken);
       NotificationManager.success('Success message');
+      handlerClickLogin();
     }
   }
 
@@ -75,7 +76,9 @@ const MenuNavbar = ({ bgActive }) => {
             setModalChange={setModalChange}
             textBtn={textBtn} 
             modalChange={modalChange}
-            textSumbit={textSumbit}/>
+            textSumbit={textSumbit}
+            isResetField={!isOpenModal}
+          />
         </Modal>
     </>
   );

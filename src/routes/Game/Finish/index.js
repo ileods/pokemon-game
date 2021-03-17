@@ -6,6 +6,8 @@ import { FireBaseContext } from '../../../context/firebaseContext';
 import PokemonCard from '../../../components/PokemonCard';
 
 import s from './style.module.css';
+import { selectLocalID } from '../../../store/users';
+import { useSelector } from 'react-redux';
 
 
 const FinishPage = () =>{
@@ -13,6 +15,7 @@ const FinishPage = () =>{
     const history = useHistory();
     const { pokemon, pokemon2, onSelectedPokemons, newPokemon, result, setResult, setPokemonsPlayer2, setSelectedPokemons, setNewPokemon } = useContext(pokemonContext);
     const firebase = useContext(FireBaseContext);
+    const localId = useSelector(selectLocalID);
 
     const [pokemons, setPokemons] = useState(pokemon2);
 
@@ -23,7 +26,6 @@ const FinishPage = () =>{
 
     const handlerChangeSelected = (key) => {
         const pokemonSelect = {...pokemons[key]};
-        console.log(pokemonSelect)
     
         onSelectedPokemons(key, pokemonSelect, true);
     
@@ -61,7 +63,7 @@ const FinishPage = () =>{
             className={s.button}
             onClick={() => {
                 if (result==='win'){
-                    firebase.addPokemon(newPokemon, () => {})
+                    firebase.addPokemon(newPokemon,localId, () => {})
                 }
                 history.replace('/game');
                 

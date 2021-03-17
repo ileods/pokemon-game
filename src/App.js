@@ -1,5 +1,6 @@
 import { useLocation, Route, Switch, Redirect } from 'react-router-dom';
 import cn from 'classnames';
+import {NotificationContainer} from 'react-notifications';
 
 import HomePage from "./routes/Home";
 import GamePage from "./routes/Game";
@@ -8,14 +9,30 @@ import Footer from './components/Footer';
 import NotFoundPage from './routes/NotFound';
 import AboutPage from './routes/About';
 import ContactPage from './routes/Contact';
+import PrivateRoute from './components/PrivateRoute';
+import { FireBaseContext } from './context/firebaseContext';
 
 import s from './style.module.css';
-import { FireBaseContext } from './context/firebaseContext';
+import 'react-notifications/lib/notifications.css';
 import FirebaseCLass from './service/firebase'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserAsync, selectUserLoading } from './store/users';
+import userPage from './routes/User';
 
 const App = () => {
+  const isUserLoading = useSelector(selectUserLoading);
   const location = useLocation();
   const isPadding = location.pathname === '/' || location.pathname === '/game/board';
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserAsync());
+  }, [])
+
+  if (isUserLoading) {
+    return 'loading...'
+  }
 
   return ( 
     <FireBaseContext.Provider value={FirebaseCLass}>
@@ -30,9 +47,10 @@ const App = () => {
               <Switch>
                 <Route path="/" exact component={HomePage}/>
                 <Route path="/home" component={HomePage}/>
-                <Route path="/game" component={GamePage}/>
-                <Route path="/about" component={AboutPage}/>
-                <Route path="/contact" component={ContactPage}/>
+                <PrivateRoute path="/game" component={GamePage}/>
+                <PrivateRoute path="/about" component={AboutPage}/>
+                <PrivateRoute path="/contact" component={ContactPage}/>
+                <PrivateRoute path="/user" component={userPage}/>
                 <Route render={() => (
                   <Redirect to='/NotFound' />
                 )}/>
@@ -43,6 +61,7 @@ const App = () => {
         </Route>
         
       </Switch>
+      <NotificationContainer />
     </FireBaseContext.Provider>
       
 
